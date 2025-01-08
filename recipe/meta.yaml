@@ -11,7 +11,7 @@ source:
 
 build:
   noarch: python
-  number: 0
+  number: 1
   script: "{{ PYTHON }} -m pip install . -vv"
   entry_points:
     - pyterate = Pyterate.Scripts.pyterate:main
@@ -20,10 +20,10 @@ build:
 requirements:
   build:
   host:
-    - python >=3.5
+    - python {{ python_min }}
     - pip
   run:
-    - python >=3.5
+    - python >={{ python_min }}
     - jinja2 >=2.11
     - jupyter >=1.0
     - nbformat >=5.0
@@ -40,6 +40,7 @@ test:
   requires:
     - numpy >= 1.16
     - matplotlib >= 3
+    - python {{ python_min }}
   source_files:
     - examples
   commands:
