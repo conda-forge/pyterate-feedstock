@@ -11,7 +11,7 @@ source:
 
 build:
   noarch: python
-  number: 0
+  number: 1
   script: "{{ PYTHON }} -m pip install . -vv"
   entry_points:
     - pyterate = Pyterate.Scripts.pyterate:main
@@ -39,7 +39,7 @@ test:
     - Pyterate
   requires:
     - numpy >= 1.16
-    - matplotlib >= 3
+    - matplotlib-base >= 3
   source_files:
     - examples
   commands:
